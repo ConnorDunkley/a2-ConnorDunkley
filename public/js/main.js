@@ -17,8 +17,8 @@ const submit = async function( event ) {
   })
 
   const text = await response.text()
-
-  console.log( 'text:', text )
+  //add onto things here
+  console.log( text ) //can run json parse here
 }
 
 window.onload = function() {

@@ -39,13 +39,15 @@ const handlePost = function( request, response ) {
   })
 
   request.on( 'end', function() {
-    console.log( JSON.parse( dataString ) )
+    let jsonparse = JSON.parse(dataString) 
+    console.log( jsonparse.yourname ) //this is the data that the server receives from the client
     // ... do something with the data here!!!
 
-    response.writeHead( 200, "OK", {'Content-Type': 'text/plain' })
+    response.writeHead( 200, "OK", {'Content-Type': 'application/json' })
 
     // change this to incorporate data
-    response.end('test')
+
+    response.end(dataString)
   })
 }
 
