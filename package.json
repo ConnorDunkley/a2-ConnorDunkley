@@ -1,8 +1,8 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
-  "author": "",
+  "name": "a2-ConnorDunkley",
+  "version": "0.1.0",
+  "description": "CS Assignment 2",
+  "author": "Connor Dunkley",
   "scripts": {
     "start": "node server.js"
   },
