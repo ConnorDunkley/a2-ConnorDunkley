@@ -10,10 +10,18 @@
     <link rel='icon' href='data:;base64,iVBORw0KGgo=' />
   </head>
   <body>
+    <h1 id="title">
+      Scheduler
+    </h1>
     <form class="form1" method="POST">
-      <input type='text' id='yourname' placeholder='Enter Text Input'>
+      <input class="listinput" type='text' id='item' placeholder='Input Item'>
       <br>
-      <button>submit</button>
+      <input class="listinput" type="text" id='count' placeholder='Cost?'>
+      <br>
+      <input class="listinput" type="text" id='cost' placeholder='How many?'>
+      <br>
+      <button class="submitbutton">Submit</button>
     </form>
+    <h2 hidden id="tdisp"></h2>
   </body>
 </html>

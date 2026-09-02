@@ -1,9 +1,35 @@
 body {
-  background:white;
+  font-family: Arial, Helvetica, sans-serif;
+  background:lightblue;
   color:black;
+  text-align: center;
 }
 .form1 {
-  max-width: fit-content;
   margin: 20px auto;
-
+  
+}
+.listinput {
+  border: 2px solid darkcyan;
+  border-radius:  5px;
+}
+#mainlist {
+  display: inline-block;
+}
+.submitbutton {
+  margin: 10px auto;
+  background-color: lightgray;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+#title{
+  margin: 30px auto;
+  color: darkcyan;
+}
+.itembutton{
+  border-color: darkcyan;
+  color: brown;
+  background-color: lightblue;
+  border: 2px solid darkcyan;
+  cursor: pointer;
 }
