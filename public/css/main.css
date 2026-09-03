@@ -22,7 +22,7 @@ body {
   font-size: 16px;
   cursor: pointer;
 }
-#title{
+.titles{
   margin: 30px auto;
   color: darkcyan;
 }
@@ -32,4 +32,5 @@ body {
   background-color: lightblue;
   border: 2px solid darkcyan;
   cursor: pointer;
+  font-weight: bold;
 }

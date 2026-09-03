@@ -22,30 +22,66 @@ const handleGet = function( request, response ) {
 
   if( request.url === '/' ) {
     sendFile( response, 'public/index.html' )
-  }else{
+  }
+  else if(request.url === '/getlist'){
+      listdata = JSON.stringify(appdata)
+      response.writeHead( 200, "OK", {'Content-Type': 'text/plain' })
+      response.end(listdata)
+  }
+  else{
     sendFile( response, filename )
   }
 }
 
 const handlePost = function( request, response ) {
-  let dataString = ''
+  //console.log(request.url)
+  if(request.url === '/submit'){
+    let dataString = ''
 
-  request.on( 'data', function( data ) {
-      dataString += data 
-  })
+    request.on( 'data', function( data ) {
+        dataString += data 
+    })
 
-  request.on( 'end', function() {
-    let jsonparse = JSON.parse(dataString) 
-    appdata.push(jsonparse)
-    //console.log( jsonparse.item ) //this is the data that the server receives from the client
-    // ... do something with the data here!!!
+    request.on( 'end', function() {
+      let jsonparse = JSON.parse(dataString) 
+      appdata.push(jsonparse)
+      //console.log( jsonparse.item ) //this is the data that the server receives from the client
+      // ... do something with the data here!!!
 
-    response.writeHead( 200, "OK", {'Content-Type': 'text/plain' })
+      response.writeHead( 200, "OK", {'Content-Type': 'text/plain' })
 
-    // change this to incorporate data
+      // change this to incorporate data
 
-    response.end(JSON.stringify(appdata))
-  })
+      response.end(JSON.stringify(appdata))
+    })
+  }
+  else if (request.url === '/delete'){
+    //console.log("endpoint reached")
+    let dataString = ''
+    request.on( 'data', function( data ) {
+        dataString += data 
+    })
+    
+    request.on('end', function(){
+      let jsonparse = JSON.parse(dataString) 
+      //console.log(jsonparse)
+      for(let i = 0; i < appdata.length; i++){
+      //console.log(appdata[i])
+      //check if li and delbutton at index match the id
+      //remove entry at index if they do
+      //array.splice(index, 1) //index and len to remove
+      if(appdata[i].id === jsonparse.id){
+        appdata.splice(i, 1)
+      }
+      }
+      response.writeHead( 200, "OK", {'Content-Type': 'text/plain' })
+      response.end(JSON.stringify('Deleted ' + dataString))
+    })
+    
+  }
+  else {response.writeHeader( 404 )
+    response.end( '404 Error: File Not Found' )}
+    
 }
 
 const sendFile = function( response, filename ) {
