@@ -95,6 +95,8 @@ Include a very brief summary of your project here. Be sure to include the CSS po
 https://a2-connordunkley.onrender.com/ 
 ## Technical Achievements
 - **Tech Achievement 1**: Using a combination of...
+Think aloud protocol
+
 
 ### Design/Evaluation Achievements
 - **Design Achievement 1**: 
